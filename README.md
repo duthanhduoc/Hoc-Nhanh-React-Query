@@ -32,8 +32,8 @@ React Query có cơ chế caching hơi khác một chút so với RTK Query, nê
 
 ## Một số khái niệm quan trọng
 
-- `staleTime` (default `0` ms): Thời gian data được cho là đã cũ. Khi get data xong thì sau một thời gian bạn quy định thì data nó sẽ tự cũ
-- `cacheTime` (default `5*60*1000` ms tức 5 phút): Thời gian data sẽ bị xóa ra khỏi bộ nhớ đệm. Có thể data đã "cũ" nhưng nó chưa bị xóa ra khỏi bộ nhớ đệm vì bạn set `stateTime < cacheTime`. Thường thì người ta sẽ set `stateTime < cacheTime`
+- `staleTime` (default `0` ms): Thời gian data được cho là đã cũ. Khi get data xong thì sau một thời gian bạn quy định thì data nó sẽ tự cũ. **Lưu ý cái `stale` trên dev tool nó hiển thị là data của bạn `stale` và `active`**
+- `cacheTime` (default `5*60*1000` ms tức 5 phút): Thời gian data sẽ bị xóa ra khỏi bộ nhớ đệm. Có thể data đã "cũ" nhưng nó chưa bị xóa ra khỏi bộ nhớ đệm vì bạn set `staleTime < cacheTime`. Thường thì người ta sẽ set `staleTime < cacheTime`
 - `inactive`: là khi data đó không còn component nào subcribe cả
 
 ```tsx
@@ -42,7 +42,7 @@ const result = useQuery({ queryKey: ['todos'], queryFn: fetchTodoList })
 
 `result` là một object chứa một vài state rất quan trọng: `status`, `fetchStatus`,...
 
-Những state về các khoảnh khắc
+Những state về các khoảnh khắc của data
 
 - `isLoading` or `status === 'loading'` - Query chưa có data
 - `isError` or `status === 'error'` - Query xảy ra lỗi
