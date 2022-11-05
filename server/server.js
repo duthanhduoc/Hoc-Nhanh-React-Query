@@ -43,7 +43,10 @@ server.use((req, res, next) => {
 router.render = (req, res) => {
   let data = res.locals.data
   const { originalUrl } = req
-  if (originalUrl === '/students' || /^\/students\?.*$/.test(originalUrl)) {
+  if (
+    req.method === 'GET' &&
+    (originalUrl === '/students' || /^\/students\?.*$/.test(originalUrl))
+  ) {
     data = data.map((student) => ({
       id: student.id,
       avatar: student.avatar,
