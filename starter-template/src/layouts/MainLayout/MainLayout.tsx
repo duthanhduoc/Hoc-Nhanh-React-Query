@@ -46,12 +46,6 @@ export default function MainLayout({ children }: Props) {
               </NavLink>
             </li>
           </ul>
-          <div className='mt-auto'>
-            ©️ Copyright{' '}
-            <a href='https://duthanhduoc.com' target='_blank' rel='noreferrer' className='text-cyan-500'>
-              duthanhduoc.com
-            </a>
-          </div>
         </div>
       </aside>
       <main className='col-span-3 h-full py-4 px-3'>{children}</main>
